@@ -12,17 +12,29 @@ using WebAPIworkers;
 
 namespace WebAPIworkers.Controllers
 {
+    /// <summary>
+    /// API controller class for Worker CRUD
+    /// </summary>
     public class WorkersController : ApiController
     {
         private Factory db = new Factory();
 
         // GET: api/Workers
+        /// <summary>
+        /// Read all Workers information
+        /// </summary>
+        /// <returns>Collection of Workers types</returns>
         public IQueryable<Worker> GetWorkers()
         {
             return db.Workers;
         }
 
         // GET: api/Workers/5
+        /// <summary>
+        /// Read workers information by Id
+        /// </summary>
+        /// <param name="id">Workers DataBase Id</param>
+        /// <returns>Worker or NULL</returns>
         [ResponseType(typeof(Worker))]
         public IHttpActionResult GetWorker(int id)
         {
@@ -36,6 +48,12 @@ namespace WebAPIworkers.Controllers
         }
 
         // PUT: api/Workers/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="worker"></param>
+        /// <returns></returns>
         [ResponseType(typeof(void))]
         public IHttpActionResult PutWorker(int id, Worker worker)
         {
@@ -71,6 +89,11 @@ namespace WebAPIworkers.Controllers
         }
 
         // POST: api/Workers
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="worker"></param>
+        /// <returns></returns>
         [ResponseType(typeof(Worker))]
         public IHttpActionResult PostWorker(Worker worker)
         {
@@ -86,6 +109,11 @@ namespace WebAPIworkers.Controllers
         }
 
         // DELETE: api/Workers/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [ResponseType(typeof(Worker))]
         public IHttpActionResult DeleteWorker(int id)
         {
@@ -100,7 +128,10 @@ namespace WebAPIworkers.Controllers
 
             return Ok(worker);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="disposing"></param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
